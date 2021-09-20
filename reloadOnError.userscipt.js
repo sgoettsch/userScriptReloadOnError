@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Reload On Error
-// @version        1.0
+// @version        1.1
 // @namespace      reloadOnError
 // @description    Refreshes the page until target string is not found
 // @include        http://*
@@ -15,4 +15,11 @@ if (text.indexOf("503 Service Temporarily Unavailable") > 0) {
     setTimeout(function() {
         location.reload();
     }, 2000);
+}
+
+var button = document.getElementsByClassName("btn btn-primary g-recaptcha");
+if(button[0]) {
+    setTimeout(function() {
+		button[0].click();
+    }, 1000);
 }
